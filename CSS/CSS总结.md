@@ -58,5 +58,45 @@ CSS使用position进行定位，position的值有`static | relative | absolute |
 
 [CSS position定位 MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)
 
+### CSS的样式的主要学习途径就是不停的用，观察展示效果，不停的查MDN。
 
-CSS主要学习途径就是不停的用，不停的查MDN。
+## 浏览器渲染CSS原理
+
+1. 浏览器在收到资源时会依次解析：  
+    1. HTML
+    2. CSS
+    3. JS
+2. 解析完成后，浏览器引擎会通过DOM Tree 和 CSS Rule Tree 来构造 Rendering Tree。
+3. 浏览器引擎解析CSS样式表，构建CSSOM来渲染样式：
+    1. 首先要做的是识别出Token，然后构建节点并生成CSSOM。
+      ![从css构建CSSOM](https://github.com/Lhasa23/my-image-repo/blob/master/CSSOM.jpg)
+    2. CSS匹配HTML元素是一个相当复杂和有性能问题的事情。所以，CSSOM树要小，CSS尽量用id和class，千万不要过渡层叠下去。
+4. 构建渲染树：  
+    当我们生成 DOM 树和 CSSOM 树以后，就需要将这两棵树组合为渲染树。  
+    在这一过程中，渲染树只会包括需要显示的节点和这些节点的样式信息，如果某个节点是 display: none 的，那么就不会在渲染树中显示。
+5. 布局与绘制：  
+    当浏览器生成渲染树以后，就会根据渲染树来进行布局（也可以叫做回流）。这一阶段浏览器要做的事情是要弄清楚各个节点在页面中的确切位置和大小。通常这一行为也被称为“自动重排”。  
+    布局流程的输出是一个“盒模型”，它会精确地捕获每个元素在视口内的确切位置和尺寸，所有相对测量值都将转换为屏幕上的绝对像素。  
+    布局完成后，浏览器会立即发出“Paint Setup”和“Paint”事件，将渲染树转换成屏幕上的像素。
+
+## CSS动画
+
+### transition
+
+`transition`可以为一个元素在不同状态之间切换的时候定义不同的过渡效果。可以在元素增加`:hover`和`:active`伪类来实现动画效果。
+
+`transition: property duration timing-function delay;`
+
+不同组之间的过渡可以使用逗号进行分隔，例如：  
+`transition: margin-right 4s, color 1s;`
+
+### animation
+
+`animation`是css动画效果，属性有`duration | timing-function | delay | iteration-count | direction | fill-mode | play-state | name`；其中`name`属性的值为使用`@keyframes`定义的transform效果，在整个周期的关键帧点进行规定，其余帧由浏览器自动填补。
+
+```css
+@keyframes sliding {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+```
