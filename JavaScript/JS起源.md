@@ -1,0 +1,11 @@
+# 朝花夕拾——JavaScript的前世
+
+## JS的诞生
+
+1995年，网景公司招募了布兰登·艾克，当时网景公司决定发明一种与Java搭配使用的辅助脚本语言并且语法上与之类似。布兰登接下了这个重任。然而他并不算是一名合格的“父亲”，仅仅用了十天时间就设计出了JavaScript的原型，为日后JS存在众多令人诟病的隐藏的bug埋下了伏笔。
+
+JavaScript最初命名为Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名为LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署时被重命名为JavaScript，当时网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，因此将其临时改名为JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。
+
+JavaScript就语言风格来说，可以说是函数式编程和面向对象编程的混合产物：（简化的）函数式编程+（简化的）面向对象编程。而且直到今天为止，Javascript仍然是世界上唯一使用Prototype继承模型的主要语言。这使得它没有设计先例可以参考。
+
+后来1996年11月，网景公司将JavaScript提交给欧洲计算机制造商协会(ECMA)进行标准化，从此JS的标准叫法为ECMAScript，又被习惯称为JavaScript或JS。当前大家所熟知的ES6即是ECMAScript2015的缩写，ES6是第六代的ECMAScript标准，自ES6之后，新版本的标准只以年份命名（ES2016,ES2019等）。
