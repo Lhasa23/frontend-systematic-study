@@ -2,8 +2,6 @@
 
 ## Vue3新特性
 
----
-
 > Vue3相对于Vue2的新特性，这些新特性在我们公司未来的前端开发上会有哪些帮助，或者新特性是为了解决哪些应用场景
 
 Vue3与Vue2的差别其实并不大，有几点比较明显的变化在于：
@@ -96,8 +94,6 @@ setup(props, { emit }) {
 ```
 
 ## Vue3的使用和核心插件
-
----
 
 > 工具链适配状态怎么样了，包括并不限于vue-cli, vuex, vue-router 等等
 
@@ -244,8 +240,6 @@ provide, inject不需要全局定义，仅在需要的组件族中使用，可�
 ![provide&inject](https://github.com/Lhasa23/my-image-repo/blob/master/vuex-replace.jpg)
 
 ## 支持Vue3组件库
-
----
 
 > 适用于Vue3的UI库有哪些，各自迭代情况如何(参考在github上的star数、版本迭代频率等)
 
