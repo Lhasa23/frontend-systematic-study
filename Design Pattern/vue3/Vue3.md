@@ -241,7 +241,7 @@ const Descendant = {
 
 provide, inject不需要全局定义，仅在需要的组件族中使用，可控性更高。
 
-![provide&inject](./vuex-replace.jpg)
+![provide&inject](https://github.com/Lhasa23/my-image-repo/blob/master/vuex-replace.jpg)
 
 ## 支持Vue3组件库
 
@@ -251,7 +251,7 @@ provide, inject不需要全局定义，仅在需要的组件族中使用，可�
 
 上Github上看，ElementUI已经接近一年没有高频率的commit了，最近大半年几乎没有commit。
 
-![](./elementui.jpg)
+![](https://github.com/Lhasa23/my-image-repo/blob/master/elementui.jpg)
 [vue组件库——ElementUI全体成员跑路](https://www.cnblogs.com/han-1034683568/p/13540198.html)
 
 vue3.0的环境下，使用ElementUI还要持观望态度，根据上述文章，可以选用的PC组件有：
