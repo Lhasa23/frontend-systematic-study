@@ -2,8 +2,6 @@
 
 ## Vue3新特性
 
----
-
 > Vue3相对于Vue2的新特性，这些新特性在我们公司未来的前端开发上会有哪些帮助，或者新特性是为了解决哪些应用场景
 
 Vue3与Vue2的差别其实并不大，有几点比较明显的变化在于：
@@ -96,8 +94,6 @@ setup(props, { emit }) {
 ```
 
 ## Vue3的使用和核心插件
-
----
 
 > 工具链适配状态怎么样了，包括并不限于vue-cli, vuex, vue-router 等等
 
@@ -241,17 +237,15 @@ const Descendant = {
 
 provide, inject不需要全局定义，仅在需要的组件族中使用，可控性更高。
 
-![provide&inject](./vuex-replace.jpg)
+![provide&inject](https://github.com/Lhasa23/my-image-repo/blob/master/vuex-replace.jpg)
 
 ## 支持Vue3组件库
-
----
 
 > 适用于Vue3的UI库有哪些，各自迭代情况如何(参考在github上的star数、版本迭代频率等)
 
 上Github上看，ElementUI已经接近一年没有高频率的commit了，最近大半年几乎没有commit。
 
-![](./elementui.jpg)
+![](https://github.com/Lhasa23/my-image-repo/blob/master/elementui.jpg)
 [vue组件库——ElementUI全体成员跑路](https://www.cnblogs.com/han-1034683568/p/13540198.html)
 
 vue3.0的环境下，使用ElementUI还要持观望态度，根据上述文章，可以选用的PC组件有：
