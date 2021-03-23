@@ -43,4 +43,80 @@ Object.constructor === Function.constructor // true 没想到吧~但由简单推
 
 ## 原型链
 
-### 原型是什么
+思索了很久不知道如何用语言描述原型链，我们用一张图来看看。
+
+![原型链](./prototype.png)
+
+图中用虚线箭头连起来的地方，都是地址相同（指向同一片内存），箭头两端使用`===`进行判定的话，输出结果为`true`。
+
+使用变量声明创建数组或对象时，都是隐式调用了`new Array()`或`new Object()`，也就是使用了Array或Object的构造函数生成数组或对象。
+
+>以下都使用数组举例
+
+我们都知道声明的数组变量自带`push()`等api，而我们声明新数组的时候并没有给它定义这些方法，那么这些共有方法就是从原型上继承来的。
+
+使用`new XXX()`创建任何对象时，都会把`XXX()`自身的`prototype`的地址赋值给新生成的对象的`__proto__`属性，这样一来，原型链就连接起来了，换一种说法，子类继承了父类的共有方法。
+
+我们在使用新数组的`push()`方法时，引擎发现新数组并没有定义这一方法，就沿着`__proto__`向上寻找，结果只找一次找到了`Array`头上，就发现`Array`的原型`prototype`上存在`push()`方法，于是这一次方法的调用就这么愉快的结束了。
+
+如果是使用构造函数创建的多次继承子对象，可能要沿着多级父对象的`__proto__`找到带头大哥`Object`头上，这样一次方法的调用才算结束。
+
+## 继承的写法
+
+1. 使用构造函数
+
+```js
+function Animal(type, name) {
+    this.type = type
+    this.name = name
+}
+Animal.prototype.bark = () => {
+    if (this.type === 'dog') {
+        return '汪汪汪'
+    } else {
+        return '喵喵喵'
+    }
+}
+
+let kittey = new Animal('cat', 'kittey')
+let wangcai = new Animal('dog', 'wangcai')
+kittey.bark() // '喵喵喵'
+wangcai.bark() // '汪汪汪'
+```
+
+2. 使用class关键字
+
+```js
+class Animal {
+  constructor(type, name){
+      this.type = type
+      this.name = name
+  }
+  bark() {
+      if (this.type === 'dog') {
+          return '汪汪汪'
+      } else {
+          return '喵喵喵'
+      }
+  }
+}
+let kittey = new Animal('cat', 'kittey')
+let wangcai = new Animal('dog', 'wangcai')
+kittey.bark() // '喵喵喵'
+wangcai.bark() // '汪汪汪'
+class Human extends Animal {
+  constructor(type, name, age) {
+      super(type, name); // 记得用super调用父类的构造方法!
+      this.age = age;
+  }
+
+  happyBirthday() {
+      return 'my name is ' + this.name + ', i am ' + this.age + ' years old.'
+  }
+}
+let jhon = new Human('human', 'jhon', 18)
+jhon.bark() // 哈哈哈约翰居然喵喵叫，就是因为继承了哺乳动物的bark()方法
+jhon.happyBirthday() // my name is jhon, i am 18 years old.
+```
+
+> 以上就是本篇回忆的全部内容啦~
